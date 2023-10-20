@@ -1,11 +1,16 @@
+// @ts-check
+
 // Inspired on http://www.2ality.com/2015/01/template-strings-html.html#comment-2078932192
 
-import escape from "html-es6cape";
+/** @type {import("html-es6cape").default} */ // @ts-ignore
+const escape = require("html-es6cape");
 
-function htmlTemplateTag(
-  literals: TemplateStringsArray,
-  ...substs: string[]
-): string {
+/**
+ * @param {TemplateStringsArray} literals
+ * @param {(string | string[])[]} substs
+ * @returns {string}
+ */
+function tag(literals, ...substs) {
   return literals.raw.reduce((acc, lit, i) => {
     let subst = substs[i - 1];
     if (Array.isArray(subst)) {
@@ -22,4 +27,4 @@ function htmlTemplateTag(
   });
 }
 
-export default htmlTemplateTag;
+module.exports.tag = tag;

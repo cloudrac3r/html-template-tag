@@ -1,4 +1,6 @@
-import html from "../src/index.ts";
+// @ts-check
+
+const {tag: html} = require("../src");
 
 describe("html-template-tag", () => {
   it("should return a string when passed a string literal", () => {
