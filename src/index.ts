@@ -4,7 +4,7 @@ import escape from "html-es6cape";
 
 function htmlTemplateTag(
   literals: TemplateStringsArray,
-  ...substs: Array<string | string[]>
+  ...substs: string[]
 ): string {
   return literals.raw.reduce((acc, lit, i) => {
     let subst = substs[i - 1];
